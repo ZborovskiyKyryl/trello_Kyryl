@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.trololo.TeamCreationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-09-04T11:12:24" hostname="WINDOWS-GUHJOJ3" time="11.003">
+  <properties/>
+  <testcase name="testTeamCreation" classname="com.telran.trololo.TeamCreationTest" time="11.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 76.0.3809.126 (d80a294506b4c9d18015e755cee48f953ddc3f2f-refs/branch-heads/3809@{#1024}) on port 17404
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1567595529.013][WARNING]: Timed out connecting to Chrome, retrying...
+Sep 04, 2019 2:12:11 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1567595533.227][WARNING]: Timed out connecting to Chrome, retrying...
+]]></system-err>
+</testsuite>
