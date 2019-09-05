@@ -8,7 +8,7 @@ public class BoardCreationTest extends TestBase {
 
     @Test
     public void mainTest(){
-   createNewBoard("massacre");
+   //createNewBoard("massacre");
    Assert.assertEquals(driver.findElement(By.cssSelector("[aria-label=\"massacre\"]")).getText(), "massacre");
     }
 
