@@ -21,10 +21,6 @@ public class TeamCreationTests extends  TestBase{
     }
   }
 
-  public boolean isTherePersonalBoards() {
-    return isElementPresent(By.xpath("//*[@class='icon-lg icon-member']/../../.."));
-  }
-
   @Test
   public void testTeamCreationFromPlusButtonOnHeader() throws InterruptedException {
     int before = getTeamsCount();
@@ -53,14 +49,6 @@ public class TeamCreationTests extends  TestBase{
 
     Assert.assertEquals(after, before+1);
     Assert.assertEquals(createdTeamName, "h");
-  }
-
-  public void refreshPage() {
-    driver.navigate().refresh();
-  }
-
-  public void clickOnPlusButtonOnLeftNavMenu() {
-    click(By.cssSelector(".icon-add.icon-sm"));
   }
 
   @Test(enabled=false)

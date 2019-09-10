@@ -18,22 +18,6 @@ public class TeamDeletionTests extends TestBase {
     returnToHomePage();
     int after = getTeamsCount();
     Assert.assertEquals(after, before - 1);
-
-
   }
 
-  public void deleteTeam() {
-    new WebDriverWait(driver, 10)
-            .until(ExpectedConditions.elementToBeClickable(By.cssSelector(".quiet-button")));
-    click(By.cssSelector(".quiet-button"));
-    click(By.cssSelector(".js-confirm"));
-  }
-
-  public void openSettings() {
-    click(By.cssSelector(".icon-gear.icon-sm.OiX3P2i2J92Xat"));
-  }
-
-  public void clickOnFirstTeam() {
-    click(By.xpath("//*[@class='_mtkwfAlvk6O3f']/../../..//li"));
-  }
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.trololo.BoardDeletionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-09-10T19:28:32" hostname="WINDOWS-GUHJOJ3" time="269.7">
+  <properties/>
+  <testcase name="deletionBoardTest" classname="com.telran.trololo.BoardDeletionTest" time="269.7"/>
+  <system-out><![CDATA[hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+hidden
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 76.0.3809.126 (d80a294506b4c9d18015e755cee48f953ddc3f2f-refs/branch-heads/3809@{#1024}) on port 19285
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1568143699.972][WARNING]: Timed out connecting to Chrome, retrying...
+Sep 10, 2019 10:28:22 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1568143704.197][WARNING]: Timed out connecting to Chrome, retrying...
+]]></system-err>
+</testsuite>

@@ -127,7 +127,7 @@ driver.quit();
   }
 
   public void createNewBoard(String name) throws InterruptedException {
-      numberOfBoardsBefore = driver.findElements(By.xpath("//*[@id=\"content\"]/div/div[2]/div/div/div/div/div[2]/div/div/div[1]/ul/li")).size();
+      numberOfBoardsBefore = driver.findElements(By.xpath("//*[@id=\"content\"]/div/div[2]/div/div/div/div/div[2]/div/div/div[1]/ul/li")).size()-1;
       click(By.cssSelector("[class='board-tile mod-add']"));
       type(By.cssSelector("[class='subtle-input']"), name);
       click(By.cssSelector("[class='primary']"));
@@ -137,7 +137,7 @@ driver.quit();
       Thread.sleep(5000);
       click(By.cssSelector("[href='/']"));
       click(By.cssSelector("[href='/']"));
-      int numberOfBoardsAfter = driver.findElements(By.xpath("//*[@id='content']/div/div[2]/div/div/div/div/div[2]/div/div/div[2]/ul/li")).size();
+      int numberOfBoardsAfter = driver.findElements(By.xpath("//*[@id='content']/div/div[2]/div/div/div/div/div[2]/div/div/div[2]/ul/li")).size()-1;
       return numberOfBoardsAfter > numberOfBoardsBefore;
   }
 
@@ -146,5 +146,75 @@ driver.quit();
       click(By.cssSelector("[href='/']"));
       click(By.cssSelector("[href='/']"));
       return driver.getPageSource().contains(boardName);
+  }
+
+  public boolean isTherePersonalBoards() {
+    return isElementPresent(By.xpath("//*[@class='icon-lg icon-member']/../../.."));
+  }
+
+  public void refreshPage()
+  {
+    driver.navigate().refresh();
+  }
+
+  public void clickOnPlusButtonOnLeftNavMenu() {
+
+    click(By.cssSelector(".icon-add.icon-sm"));
+  }
+
+  public void deleteTeam() {
+    new WebDriverWait(driver, 10)
+            .until(ExpectedConditions.elementToBeClickable(By.cssSelector(".quiet-button")));
+    click(By.cssSelector(".quiet-button"));
+    click(By.cssSelector(".js-confirm"));
+  }
+
+  public void openSettings() {
+    click(By.cssSelector(".icon-gear.icon-sm.OiX3P2i2J92Xat"));
+  }
+
+  public void clickOnFirstTeam() {
+    click(By.xpath("//*[@class='_mtkwfAlvk6O3f']/../../..//li"));
+  }
+
+  public void clickOnPermanentlyDeleteBoard() {
+    click(By.cssSelector(".js-delete"));
+    click(By.cssSelector("[class=\"js-confirm full negate\"]"));
+  }
+
+  public void clickOnCloseBoard() {
+    click(By.cssSelector(".js-close-board"));
+    click(By.cssSelector("[class=\"js-confirm full negate\"]"));
+
+  }
+
+  public void clickOnMoreButtonInBoardMenu() {
+    WebElement menuButton = driver.findElement(By.cssSelector(".board-header-btn.mod-show-menu"));
+    System.out.println(menuButton.getCssValue("visibility"));
+    if(menuButton.getCssValue("visibility").equals("visible")){
+      click(By.cssSelector(".mod-show-menu"));
+      click(By.cssSelector(".js-open-more"));
+    } else{
+      click(By.cssSelector(".js-open-more"));
+    }
+
+  }
+
+  public void clickOnFirstPrivateBoard() {
+    click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+  }
+
+  public void leave3BoardsOnly() {
+    int valueOfPresentBoards = getPersnalBoardsCount();
+    while (valueOfPresentBoards > 3) {
+      clickOnFirstPrivateBoard();
+      clickOnMoreButtonInBoardMenu();
+      clickOnCloseBoard();
+      clickOnPermanentlyDeleteBoard();
+      returnToHomePage();
+      valueOfPresentBoards = getPersnalBoardsCount();
+    }
+
+
   }
 }
