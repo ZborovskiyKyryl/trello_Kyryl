@@ -9,8 +9,10 @@ public class BoardCreationTestKirill extends TestBase {
     @Test
     public void mainTest() throws InterruptedException {
 
-        boardName = "newBoard5.1";
-        createNewBoard(boardName);
+        boardName = "newBoard5.12";
+
+            createNewBoard(boardName);
+
         Assert.assertTrue(isNewBoardCreatedBySize());
         //Assert.assertTrue(isNewBoardCreatedByName());
     }

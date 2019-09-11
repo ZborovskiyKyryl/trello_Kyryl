@@ -131,6 +131,8 @@ driver.quit();
       click(By.cssSelector("[class='board-tile mod-add']"));
       type(By.cssSelector("[class='subtle-input']"), name);
       click(By.cssSelector("[class='primary']"));
+    Thread.sleep(5000);
+      returnToHomePage();
   }
 
   public boolean isNewBoardCreatedBySize() throws InterruptedException {
@@ -204,7 +206,8 @@ driver.quit();
     click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
   }
 
-  public void leave3BoardsOnly() {
+  public void leave3BoardsOnly() throws InterruptedException {
+    Thread.sleep(5000); // if the internet is poor((
     int valueOfPresentBoards = getPersnalBoardsCount();
     while (valueOfPresentBoards > 3) {
       clickOnFirstPrivateBoard();
