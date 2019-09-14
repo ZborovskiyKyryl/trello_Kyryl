@@ -1,6 +1,6 @@
 package com.telran.trololo;
 
-import org.openqa.selenium.By;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
@@ -8,12 +8,13 @@ public class BoardCreationTestKirill extends TestBase {
 
     @Test
     public void mainTest() throws InterruptedException {
+        isOnHomePage();
 
-        boardName = "newBoard5.12";
+        app.boardName = "newBoard5.12";
 
-            createNewBoard(boardName);
+            app.createNewBoard(app.boardName);
 
-        Assert.assertTrue(isNewBoardCreatedBySize());
+        Assert.assertTrue(app.isNewBoardCreatedBySize());
         //Assert.assertTrue(isNewBoardCreatedByName());
     }
 

@@ -1,6 +1,5 @@
 package com.telran.trololo;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -9,43 +8,42 @@ import org.testng.annotations.Test;
 public class TeamCreationTests extends  TestBase{
   @BeforeClass
   public void ensurePreconditionsLogin(){
-    if(!isUserLoggedIn()){
-      login("elena.telran@yahoo.com", "12345.com");
+    if(!app.isUserLoggedIn()){
+      app.login("speak.zborovskiy@gmail.com", "154324qq");
     }
   }
 
-  @BeforeMethod
-  public void isOnHomePage(){
-    if(!isTherePersonalBoards()){
-      returnToHomePage();
-    }
-  }
 
-  @Test
+
+
+
+  @Test(enabled = false)
   public void testTeamCreationFromPlusButtonOnHeader() throws InterruptedException {
-    int before = getTeamsCount();
-    clickOnPlusButtonOnHeader();
-    selectCreateTeamFromDropDown();
+    isOnHomePage();
+    int before = app.getTeamsCount();
+    app.clickOnPlusButtonOnHeader();
+    app.selectCreateTeamFromDropDown();
     String teamName = "qa21-"+ System.currentTimeMillis();
-    fillTeamCreationForm(teamName, "descr qa 21");
-    clickContinueButton();
+    app.fillTeamCreationForm(teamName, "descr qa 21");
+    app.clickContinueButton();
   //  String createdTeamName = getTeamNameFromTeamPage();
-    returnToHomePage();
-    int after = getTeamsCount();
+    app.returnToHomePage();
+    int after = app.getTeamsCount();
     Assert.assertEquals(after, before+1);
   //  Assert.assertEquals(createdTeamName.toLowerCase(), teamName.toLowerCase());
   }
 
   @Test
   public void testTeamCreationFromLeftNavMenu() throws InterruptedException {
-    int before = getTeamsCount();
-    clickOnPlusButtonOnLeftNavMenu();
-    fillTeamCreationForm("h", "g");
-    clickContinueButton();
-    String createdTeamName = getTeamNameFromTeamPage();
-    returnToHomePage();
+    isOnHomePage();
+    int before = app.getTeamsCount();
+    app.clickOnPlusButtonOnLeftNavMenu();
+    app.fillTeamCreationForm("h", "g");
+    app.clickContinueButton();
+    String createdTeamName = app.getTeamNameFromTeamPage();
+    app.returnToHomePage();
   //  refreshPage();
-    int after = getTeamsCount();
+    int after = app.getTeamsCount();
 
     Assert.assertEquals(after, before+1);
     Assert.assertEquals(createdTeamName, "h");
@@ -53,14 +51,14 @@ public class TeamCreationTests extends  TestBase{
 
   @Test(enabled=false)
   public void testTeamCuncellCreationFromPlusButtonOnHeader(){
-    clickOnPlusButtonOnHeader();
-    selectCreateTeamFromDropDown();
-    fillTeamCreationForm("qa21", "descr qa 21");
-    clickXButton();
+    app.clickOnPlusButtonOnHeader();
+    app.selectCreateTeamFromDropDown();
+    app.fillTeamCreationForm("qa21", "descr qa 21");
+    app.clickXButton();
     //Assert
 
 
-    Assert.assertTrue(isUserLoggedIn());
+    Assert.assertTrue(app.isUserLoggedIn());
   }
 
 
