@@ -2,14 +2,15 @@
 
 <suite name="Suite1" verbose="1" >
 
-
     <test name="RegressionTrello">
         <classes>
-            <class name="com.telran.trololo.TeamCreationTests"/>
-            <class name="com.telran.trololo.TeamDeletionTests"/>
-            <class name="com.telran.trololo.BoardCreationTestKirill"/>
-            <class name="com.telran.trololo.BoardDeletionTest"/>
 
+            <class name="com.trello.qa.tests.TeamCreationTests"/>
+            <class name="com.trello.qa.tests.TeamModificationTest"/>
+            <class name="com.trello.qa.tests.TeamDeletionTests"/>
+            <class name="com.trello.qa.tests.BoardCreationTests"/>
+            <class name="com.trello.qa.tests.BoardModificationTest"/>
+            <class name="com.trello.qa.tests.BoardDeletionTest"/>
         </classes>
     </test>
 </suite>
