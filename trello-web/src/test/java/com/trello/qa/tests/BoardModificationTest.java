@@ -19,6 +19,7 @@ public class BoardModificationTest extends TestBase {
 
         Assert.assertEquals(actualName, boardName);
 
+
     }
 
 

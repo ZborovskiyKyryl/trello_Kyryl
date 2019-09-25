@@ -15,9 +15,9 @@ public class TeamHelper extends  HelperBase {
     click(By.cssSelector("[type=submit]"));
   }
 
-  public void fillTeamCreationForm(String teamName, String description) {
-    type(By.cssSelector("[data-test-id='header-create-team-name-input']"), teamName);
-    type(By.cssSelector("textarea"), description);
+  public void fillTeamCreationForm(TeamData team) {
+    type(By.cssSelector("[data-test-id='header-create-team-name-input']"), team.getTeamName());
+    type(By.cssSelector("textarea"), team.getDescription());
   }
 
   public void selectCreateTeamFromDropDown() {
@@ -95,5 +95,20 @@ public class TeamHelper extends  HelperBase {
   public void confitmEditTeam() {
   click(By.cssSelector(".js-submit-profile"));
 
+  }
+
+  public boolean isTeamsPresent() {
+
+    return getTeamsCount()>0;
+  }
+
+  public void createTeam() {
+    clickOnPlusButtonOnHeader();
+    selectCreateTeamFromDropDown();
+    fillTeamCreationForm(new TeamData()
+            .withTeamName("service")
+            .withDescription("lalalal"));
+    clickContinueButton();
+    returnToHomePage();
   }
 }

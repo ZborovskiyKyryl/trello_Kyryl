@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 
 public class TeamModificationTest extends TestBase {
 
+
+
     @Test
     public void testRenameTeam() throws InterruptedException {
         app.getTeamHelper().clickOnFirstTeam();

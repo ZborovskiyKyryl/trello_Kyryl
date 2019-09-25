@@ -11,8 +11,8 @@ public class BoardHelper extends  HelperBase{
     super(driver);
   }
 
-  public void fillBoardCreationForm(String boardName, String s) {
-    type(By.cssSelector("[data-test-id='header-create-board-title-input']"), boardName);
+  public void fillBoardCreationForm(BoardData board) {
+    type(By.cssSelector("[data-test-id='header-create-board-title-input']"), board.getBoardName());
 
     if (isElementPresent(By.cssSelector(".W6rMLOx8U0MrPx"))) {
       click(By.cssSelector(".W6rMLOx8U0MrPx"));
@@ -51,7 +51,7 @@ public class BoardHelper extends  HelperBase{
   public void createBoard() {
     clickOnPlusButtonOnHeader();
     selectCreateBoardFromDropDown();
-    fillBoardCreationForm("qa21", "descr qa 21");
+    //fillBoardCreationForm("qa21", "descr qa 21");
     confirmBoardCreation();
     returnToHomePage();
   }

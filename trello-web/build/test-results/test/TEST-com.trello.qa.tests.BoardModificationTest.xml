@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.trello.qa.tests.BoardModificationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-09-22T11:10:46" hostname="WINDOWS-GUHJOJ3" time="40.823">
-  <properties/>
-  <testcase name="boardModification" classname="com.trello.qa.tests.BoardModificationTest" time="40.823"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

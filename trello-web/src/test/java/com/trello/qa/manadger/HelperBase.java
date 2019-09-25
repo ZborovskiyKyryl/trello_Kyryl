@@ -24,9 +24,11 @@ public class HelperBase {
   }
 
   public void type(By locator, String text) {
-    driver.findElement(locator).click();
-    driver.findElement(locator).clear();
-    driver.findElement(locator).sendKeys(text);
+    if(text != null){
+      driver.findElement(locator).click();
+      driver.findElement(locator).clear();
+      driver.findElement(locator).sendKeys(text);
+    }
   }
 
   public void Onlytype(By locator, String text) {
