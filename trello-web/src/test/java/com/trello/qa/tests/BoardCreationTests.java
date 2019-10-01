@@ -5,11 +5,12 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class BoardCreationTests extends TestBase {
+
+  List<Object[]> list = new ArrayList<>();
 
   @DataProvider
   public Iterator<Object[]> validBoards(){
@@ -24,6 +25,18 @@ public class BoardCreationTests extends TestBase {
     return list.iterator();
   }
 
+  @DataProvider
+  public Iterator<Object[]> validBoardsCvs() throws IOException {
+    List<Object[]> list = new ArrayList<>();
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/Team.csv")));
+    String line = reader.readLine();
+    while (line!=null){
+      list.add(new Object[] {new BoardData().withBoardName(line)});
+      line = reader.readLine();
+    }
+    return  list.iterator();
+    }
+
   @Test
   public void testBoardCreation() throws InterruptedException {
 
@@ -34,19 +47,18 @@ public class BoardCreationTests extends TestBase {
     Assert.assertEquals(afterCreation, beforeCreation + 1);
   }
 
-  @Test(dataProvider = "validBoards")
-  public void testBoardCreationWithDataProvider(String teamName){
-    BoardData board = new BoardData().withBoardName(teamName);
+  @Test(dataProvider = "validBoardsCvs")
+  public void testBoardCreationWithDataProvider(BoardData board){
+    //BoardData board = new BoardData().withBoardName(teamName);
 
     app.getBoardHelper().clickOnPlusButtonOnHeader();
     app.getBoardHelper().selectCreateBoardFromDropDown();
     app.getBoardHelper().fillBoardCreationForm(board);
     app.getBoardHelper().confirmBoardCreation();
     app.getBoardHelper().returnToHomePage();
-
-
-
   }
+
+
 
 
 
