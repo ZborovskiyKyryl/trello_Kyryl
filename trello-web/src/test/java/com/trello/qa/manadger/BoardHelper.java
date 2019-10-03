@@ -30,6 +30,7 @@ public class BoardHelper extends  HelperBase{
     click(By.xpath("//*[@class='js-board-editing-target board-header-btn-text']"));
      Onlytype(By.xpath("//input[@class='board-name-input js-board-name-input']"), Boardname);
     returnToHomePage();
+    //  
   }
 
   public String getBoardNameFromBoardPage() {
